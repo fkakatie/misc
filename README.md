@@ -1,26 +1,32 @@
-# Your Project's Title...
-Your project's description...
+# misc
+a dumb personal site for even dumber single-use projects.
 
-## Environments
-- Preview: https://main--specter--fkakatie.hlx.page/
-- Live: https://main--specter--fkakatie.hlx.live/
+## 🌍 environment 
+- prev: https://main--misc--fkakatie.aem.page/
+- live: https://main--misc--fkakatie.aem.live/
+- prod: https://fkakatie.rip/
 
-## Installation
+## 💾 install
 
 ```sh
 npm i
 ```
 
-## Linting
+## 🧹 lint
 
 ```sh
 npm run lint
 ```
 
-## Local development
+## 💻 develop
 
-1. Create a new repository based on the `aem-boilerplate` template and add a mountpoint in the `fstab.yaml`
-1. Add the [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) to the repository
-1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
-1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
-1. Open the `specter` directory in your favorite IDE and start coding :)
+```sh
+npm install -g @adobe/aem-cli
+aem up
+```
+
+## 🛠️ diy
+
+1. create a new repository based on the [`specter`](https://github.com/fkakatie/specter) template
+2. add the [AEM code sync GitHub app](https://github.com/apps/aem-code-sync) to the repository
+3. open the `specter` directory and just have a good time
