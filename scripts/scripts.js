@@ -15,6 +15,45 @@ import {
 } from './aem.js';
 
 /**
+ * Creates DOM element with optional attributes and children.
+ * @param {string} tag - Tag name of the element
+ * @param {Object} [attrs = {}] - Attributes to set
+ * @param {Array} [children = []] - Children to append
+ * @returns {HTMLElement} Newly created and populated DOM element
+ */
+export function createEl(tag, attrs = {}, children = []) {
+  const el = document.createElement(tag);
+
+  // apply attributes
+  Object.entries(attrs).forEach(([attr, value]) => {
+    switch (attr) {
+      case 'class':
+        el.className = value;
+        break;
+      case 'text':
+        el.textContent = value;
+        break;
+      case 'html':
+        el.innerHTML = value;
+        break;
+      default:
+        el.setAttribute(attr, value);
+        break;
+    }
+  });
+
+  // normalize and append children
+  // eslint-disable-next-line no-param-reassign
+  if (!Array.isArray(children)) children = children != null ? [children] : [];
+  children.forEach((child) => {
+    if (child instanceof Node) el.append(child);
+    else el.append(document.createTextNode(child));
+  });
+
+  return el;
+}
+
+/**
  * Load fonts.css and set a session storage flag.
  */
 async function loadFonts() {
