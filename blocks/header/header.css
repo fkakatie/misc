@@ -2,7 +2,7 @@ header,
 .header nav {
   margin: auto;
   height: var(--header-height);
-  background-color: #690;
+  background-color: #558000;
   color: var(--gray-25);
 }
 

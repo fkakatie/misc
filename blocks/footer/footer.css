@@ -26,11 +26,11 @@ footer,
   border-radius: 50%;
   padding: 1ch;
   line-height: 0;
-  background-color: #690;
+  background-color: #558000;
   transition: background-color 0.2s, transform 0.2s;
 }
 
 .footer .footer-links .button:hover {
-  background-color: var(--text-color);
+  background-color: #690;
   transform: scale(1.1);
 }
