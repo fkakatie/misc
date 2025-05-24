@@ -2,8 +2,11 @@ header,
 .header nav {
   margin: auto;
   height: var(--header-height);
-  background-image: linear-gradient(to right, var(--green-dark), var(--green));
   color: var(--white);
+}
+
+header {
+  background-image: linear-gradient(to right, var(--green-dark), var(--green));
 }
 
 .header nav {
