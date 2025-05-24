@@ -1,5 +1,5 @@
 import { getMetadata } from '../../scripts/aem.js';
-import { swapIcons } from '../../scripts/scripts.js';
+import { createEl, swapIcons } from '../../scripts/scripts.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 /**
@@ -8,25 +8,21 @@ import { loadFragment } from '../fragment/fragment.js';
  */
 export default async function decorate(block) {
   // load footer as fragment
-  const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
-  const fragment = await loadFragment(footerPath);
+  const meta = getMetadata('footer');
+  const path = meta ? new URL(meta, window.location).pathname : '/footer';
+  const fragment = await loadFragment(path);
+  if (!fragment) return; // eject if no footer fragment
 
-  // decorate footer DOM
-  block.textContent = '';
-  const footer = document.createElement('section');
-  footer.id = 'footer';
-  while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
-
-  const classes = ['copyright', 'legal'];
-  classes.forEach((c, i) => {
-    const section = footer.children[i];
-    if (section) {
-      section.id = `footer-${c}`;
-      section.classList.add(`footer-${c}`);
-    }
+  // extract and label nav sections
+  const sections = [...fragment.children].map((c) => c.firstElementChild);
+  const classes = ['copy', 'links'];
+  sections.forEach((section, i) => {
+    const type = classes[i] || 'other';
+    section.className = `footer-${type}`;
   });
 
-  block.append(footer);
+  const footer = createEl('section', {}, sections);
+  block.replaceChildren(footer);
+
   swapIcons(block);
 }
