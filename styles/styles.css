@@ -134,8 +134,8 @@ main > .section {
 }
 
 main > .section > div {
-  margin: 1rem auto;
-  padding: 0 1rem;
+  margin: var(--spacing-m) auto;
+  padding: 0 var(--spacing-m);
 }
 
 main > .section:first-of-type {
@@ -293,6 +293,11 @@ var {
   /* border-radius: var(--rounding-s); */
   /* padding: 0 0.25em; */
   /* background-color: var(--layer-depth); */
+}
+
+.default-content-wrapper ol,
+.default-content-wrapper ul {
+  padding-inline-start: 1.5em;
 }
 
 /* links */
