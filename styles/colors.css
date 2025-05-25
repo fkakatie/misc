@@ -13,4 +13,9 @@
   --green: #690;
   --green-dark: #558000;
   --green-darker: #416100;
+
+  /* purple */
+  --purple-lighter: #d685ff;
+  --purple-light: #c042ff;
+  --purple: #609;
 }
