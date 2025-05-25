@@ -299,6 +299,10 @@ function createOptimizedPicture(
  * Set template (page structure) and theme (page styles).
  */
 function decorateTemplateAndTheme() {
+  const { pathname } = window.location;
+  const section = pathname.split('/').filter((p) => p)[0];
+  if (section) document.body.dataset.section = section;
+
   const addClasses = (element, classes) => {
     classes.split(',').forEach((c) => {
       element.classList.add(toClassName(c.trim()));
