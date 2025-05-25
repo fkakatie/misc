@@ -1,0 +1,7 @@
+.widget[data-widget='loading'] {
+  visibility: hidden;
+}
+
+.widget[data-widget='loaded'] {
+  visibility: visible;
+}
