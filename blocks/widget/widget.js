@@ -9,7 +9,7 @@ export default async function decorate(block) {
   if (section) {
     const url = new URL(`/widgets/${section}/${variants[0] || 'index'}.js`, window.location);
     await loadScript(
-      url.pathname,
+      url.href,
       { type: 'module' },
     );
   } else {
