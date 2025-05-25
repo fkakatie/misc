@@ -7,8 +7,9 @@ export default async function decorate(block) {
   block.dataset.widget = 'loading';
 
   if (section) {
+    const url = new URL(`/widgets/${section}/${variants[0] || 'index'}.js`, window.location);
     await loadScript(
-      `../widgets/${section}/${variants[0] || 'index'}.js`,
+      url.pathname,
       { type: 'module' },
     );
   } else {
